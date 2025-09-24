@@ -85,14 +85,18 @@ const ManualPage = () => {
         {/* Interactive Elements */}
         <div className="mt-16 space-y-8">
           <div className="flex items-center justify-center space-x-4">
-            <HeartIcon onClick={handleGiftListClick} />
+            <div className="flex items-center justify-center">
+              <HeartIcon onClick={handleGiftListClick} />
+            </div>
             <p className="body-font text-xl text-script-text font-semibold">
               Lista de presentes
             </p>
           </div>
           
           <div className="flex items-center justify-center space-x-4">
-            <HeartIcon onClick={handleConfirmPresenceClick} />
+            <div className="flex items-center justify-center">
+              <HeartIcon onClick={handleConfirmPresenceClick} />
+            </div>
             <p className="body-font text-xl text-script-text font-semibold">
               Confirmar presença
             </p>

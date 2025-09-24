@@ -38,7 +38,9 @@ const TimelinePage = () => {
         <div className="space-y-8">
           {/* Civil Ceremony */}
           <div className="flex items-center justify-center space-x-4">
-            <HeartIcon onClick={handleHeartClick} />
+            <div className="flex items-center justify-center">
+              <HeartIcon onClick={handleHeartClick} />
+            </div>
             <div className="border-t border-elegant-gold w-12"></div>
             <div className="text-left">
               <h3 className="body-font text-xl font-semibold text-script-text">
@@ -49,7 +51,9 @@ const TimelinePage = () => {
           
           {/* Date and Time */}
           <div className="flex items-center justify-center space-x-4">
-            <HeartIcon onClick={handleHeartClick} />
+            <div className="flex items-center justify-center">
+              <HeartIcon onClick={handleHeartClick} />
+            </div>
             <div className="border-t border-elegant-gold w-12"></div>
             <div className="text-left">
               <h3 className="body-font text-xl font-semibold text-script-text">
@@ -63,7 +67,9 @@ const TimelinePage = () => {
           
           {/* Venue */}
           <div className="flex items-center justify-center space-x-4">
-            <HeartIcon onClick={handleHeartClick} />
+            <div className="flex items-center justify-center">
+              <HeartIcon onClick={handleHeartClick} />
+            </div>
             <div className="border-t border-elegant-gold w-12"></div>
             <div className="text-left">
               <h3 className="body-font text-xl font-semibold text-script-text">

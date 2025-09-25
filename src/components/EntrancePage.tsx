@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import goldenHeart from '@/assets/golden_heart.webp';
+import goldenHeart from '@/assets/wax-seal.png';
 
 interface EntrancePageProps {
   onEnter: () => void;
@@ -47,7 +47,9 @@ const EntrancePage = ({ onEnter }: EntrancePageProps) => {
         
         {/* Click text */}
         <div className="absolute -bottom-8 sm:-bottom-10 left-1/2 transform -translate-x-1/2 text-[#7a5c46] text-sm sm:text-base italic tracking-wide text-center px-2">
+          
           clique para abrir
+          
         </div>
       </div>
       

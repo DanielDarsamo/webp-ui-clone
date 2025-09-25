@@ -7,6 +7,10 @@ const TimelinePage = () => {
     console.log('Heart clicked - interactive element');
   };
 
+  const handleVenueClick = () => {
+    window.open('https://maps.app.goo.gl/MBAvo4C4d6GkvXsG7', '_blank');
+  };
+
   const { elementRef: headerRef, isVisible: headerVisible } = useScrollAnimation(0.3);
   const { elementRef: timelineRef, isVisible: timelineVisible } = useScrollAnimation(0.3);
   const { elementRef: noteRef, isVisible: noteVisible } = useScrollAnimation(0.3);
@@ -86,8 +90,8 @@ const TimelinePage = () => {
           
           {/* Venue */}
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-4">
-            <div className="flex items-center justify-center touch-manipulation">
-              <HeartIcon onClick={handleHeartClick} />
+            <div className="flex items-center justify-center touch-manipulation animate-pulse">
+              <HeartIcon onClick={handleVenueClick} />
             </div>
             <div className="border-t border-elegant-gold w-8 sm:w-12 hidden sm:block"></div>
             <div className="text-center sm:text-left">

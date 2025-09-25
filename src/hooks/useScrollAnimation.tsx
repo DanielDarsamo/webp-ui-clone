@@ -7,12 +7,14 @@ export const useScrollAnimation = (threshold = 0.1) => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
+        // Update visibility state based on intersection
+        setIsVisible(entry.isIntersecting);
       },
-      { threshold }
+      { 
+        threshold,
+        // Add root margin to trigger animation slightly before element is fully visible
+        rootMargin: '0px 0px -10% 0px'
+      }
     );
 
     if (elementRef.current) {

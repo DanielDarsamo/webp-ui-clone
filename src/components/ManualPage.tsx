@@ -1,6 +1,8 @@
 import LeafDecoration from './LeafDecoration';
 import HeartIcon from './HeartIcon';
 import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import greendressImage from '@/assets/greendress.webp';
+import suitblImage from '@/assets/suitbl.webp';
 
 const ManualPage = () => {
   const handleGiftListClick = () => {
@@ -46,38 +48,32 @@ const ManualPage = () => {
           }`}
         >
           {/* Couple Illustrations */}
-          <div className="flex justify-center space-x-6 sm:space-x-8 order-2 lg:order-1">
+          <div className="flex justify-center space-x-6 sm:space-x-8 order-1 lg:order-1">
             {/* Woman in green dress */}
             <div className="text-center">
-              <div className="w-24 h-36 sm:w-28 sm:h-42 lg:w-32 lg:h-48 mx-auto mb-4 relative">
-                <svg viewBox="0 0 100 150" className="w-full h-full">
-                  {/* Woman figure */}
-                  <ellipse cx="50" cy="25" rx="12" ry="15" fill="#D4A574"/> {/* Head */}
-                  <path d="M35 45 Q50 40 65 45 L60 120 Q50 125 40 120 Z" fill="#7A8B4A"/> {/* Green dress */}
-                  <rect x="45" y="120" width="10" height="25" fill="#D4A574"/> {/* Legs */}
-                  <ellipse cx="50" cy="22" rx="8" ry="6" fill="#2C2C2C"/> {/* Hair */}
-                </svg>
+              <div className="w-24 h-32 sm:w-28 sm:h-40 lg:w-32 lg:h-44 mx-auto mb-4 relative">
+                <img 
+                  src={greendressImage}
+                  alt="Woman in green dress"
+                  className="w-full h-full object-contain rounded-lg shadow-sm"
+                />
               </div>
             </div>
             
             {/* Man in tuxedo */}
             <div className="text-center">
-              <div className="w-24 h-36 sm:w-28 sm:h-42 lg:w-32 lg:h-48 mx-auto mb-4 relative">
-                <svg viewBox="0 0 100 150" className="w-full h-full">
-                  {/* Man figure */}
-                  <ellipse cx="50" cy="25" rx="12" ry="15" fill="#D4A574"/> {/* Head */}
-                  <rect x="40" y="40" width="20" height="35" fill="#FFFFFF"/> {/* White shirt */}
-                  <rect x="38" y="40" width="24" height="80" fill="#1A1A1A"/> {/* Black tuxedo */}
-                  <rect x="45" y="120" width="10" height="25" fill="#1A1A1A"/> {/* Legs */}
-                  <ellipse cx="50" cy="22" rx="8" ry="6" fill="#2C2C2C"/> {/* Hair */}
-                  <rect x="47" y="45" width="6" height="15" fill="#1A1A1A"/> {/* Bow tie */}
-                </svg>
+              <div className="w-24 h-32 sm:w-28 sm:h-40 lg:w-32 lg:h-44 mx-auto mb-4 relative">
+                <img 
+                  src={suitblImage}
+                  alt="Man in tuxedo"
+                  className="w-full h-full object-contain rounded-lg shadow-sm"
+                />
               </div>
             </div>
           </div>
           
           {/* Guidelines */}
-          <div className="space-y-4 sm:space-y-6 order-1 lg:order-2">
+          <div className="space-y-4 sm:space-y-6 order-2 lg:order-2">
             <div className="space-y-2 sm:space-y-3">
               <p className="body-font text-base sm:text-lg text-script-text font-semibold">
                 Confirme sua presença

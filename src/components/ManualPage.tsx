@@ -1,5 +1,6 @@
 import LeafDecoration from './LeafDecoration';
 import HeartIcon from './HeartIcon';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const ManualPage = () => {
   const handleGiftListClick = () => {
@@ -10,6 +11,10 @@ const ManualPage = () => {
     console.log('Confirmar presença clicked');
   };
 
+  const { elementRef: titleRef, isVisible: titleVisible } = useScrollAnimation(0.3);
+  const { elementRef: contentRef, isVisible: contentVisible } = useScrollAnimation(0.3);
+  const { elementRef: interactiveRef, isVisible: interactiveVisible } = useScrollAnimation(0.3);
+
   return (
     <div className="relative min-h-screen bg-background flex flex-col items-center justify-center p-8">
       <LeafDecoration position="top-left" />
@@ -19,13 +24,27 @@ const ManualPage = () => {
       
       <div className="max-w-4xl mx-auto">
         {/* Title */}
-        <div className="text-center mb-12">
+        <div 
+          ref={titleRef}
+          className={`text-center mb-12 transition-all duration-1000 ${
+            titleVisible 
+              ? 'opacity-100 translate-y-0 scale-100' 
+              : 'opacity-0 translate-y-8 scale-95'
+          }`}
+        >
           <h1 className="script-font text-4xl md:text-5xl text-script-text">
             Manual do convidado
           </h1>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div 
+          ref={contentRef}
+          className={`grid md:grid-cols-2 gap-12 items-center transition-all duration-1000 delay-300 ${
+            contentVisible 
+              ? 'opacity-100 translate-y-0 scale-100' 
+              : 'opacity-0 translate-y-8 scale-95'
+          }`}
+        >
           {/* Couple Illustrations */}
           <div className="flex justify-center space-x-8">
             {/* Woman in green dress */}
@@ -83,7 +102,14 @@ const ManualPage = () => {
         </div>
         
         {/* Interactive Elements */}
-        <div className="mt-16 space-y-8">
+        <div 
+          ref={interactiveRef}
+          className={`mt-16 space-y-8 transition-all duration-1000 delay-500 ${
+            interactiveVisible 
+              ? 'opacity-100 translate-y-0 scale-100' 
+              : 'opacity-0 translate-y-8 scale-95'
+          }`}
+        >
           <div className="flex items-center justify-center space-x-4">
             <div className="flex items-center justify-center">
               <HeartIcon onClick={handleGiftListClick} />
@@ -101,13 +127,13 @@ const ManualPage = () => {
               Confirmar presença
             </p>
           </div>
-        </div>
-        
-        {/* Interactive Note */}
-        <div className="text-center mt-8">
-          <p className="body-font text-sm text-body-text italic">
-            clique nos ícones para interragir
-          </p>
+          
+          {/* Interactive Note */}
+          <div className="text-center mt-8">
+            <p className="body-font text-sm text-body-text italic">
+              clique nos ícones para interragir
+            </p>
+          </div>
         </div>
       </div>
     </div>

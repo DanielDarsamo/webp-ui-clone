@@ -1,10 +1,15 @@
 import LeafDecoration from './LeafDecoration';
 import HeartIcon from './HeartIcon';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const TimelinePage = () => {
   const handleHeartClick = () => {
     console.log('Heart clicked - interactive element');
   };
+
+  const { elementRef: headerRef, isVisible: headerVisible } = useScrollAnimation(0.3);
+  const { elementRef: timelineRef, isVisible: timelineVisible } = useScrollAnimation(0.3);
+  const { elementRef: noteRef, isVisible: noteVisible } = useScrollAnimation(0.3);
 
   return (
     <div className="relative min-h-screen bg-background flex flex-col items-center justify-center p-8">
@@ -15,7 +20,14 @@ const TimelinePage = () => {
       
       <div className="max-w-3xl mx-auto text-center">
         {/* Header */}
-        <div className="mb-12">
+        <div 
+          ref={headerRef}
+          className={`mb-12 transition-all duration-1000 ${
+            headerVisible 
+              ? 'opacity-100 translate-y-0 scale-100' 
+              : 'opacity-0 translate-y-8 scale-95'
+          }`}
+        >
           <p className="elegant-font text-xl text-body-text mb-6">
             Com a bênção de Deus e de seus pais
           </p>
@@ -35,7 +47,14 @@ const TimelinePage = () => {
         </div>
         
         {/* Timeline */}
-        <div className="space-y-8">
+        <div 
+          ref={timelineRef}
+          className={`space-y-8 transition-all duration-1000 delay-300 ${
+            timelineVisible 
+              ? 'opacity-100 translate-y-0 scale-100' 
+              : 'opacity-0 translate-y-8 scale-95'
+          }`}
+        >
           {/* Civil Ceremony */}
           <div className="flex items-center justify-center space-x-4">
             <div className="flex items-center justify-center">
@@ -83,7 +102,14 @@ const TimelinePage = () => {
         </div>
         
         {/* Interactive Note */}
-        <div className="mt-12">
+        <div 
+          ref={noteRef}
+          className={`mt-12 transition-all duration-1000 delay-500 ${
+            noteVisible 
+              ? 'opacity-100 translate-y-0 scale-100' 
+              : 'opacity-0 translate-y-8 scale-95'
+          }`}
+        >
           <p className="body-font text-sm text-body-text italic">
             clique no ícone para interragir
           </p>

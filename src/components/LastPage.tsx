@@ -1,7 +1,11 @@
 import LeafDecoration from './LeafDecoration';
 import lastPageImage from '@/assets/lastpage.webp';
+import { useScrollAnimation } from '@/hooks/useScrollAnimation';
 
 const LastPage = () => {
+  const { elementRef: imageRef, isVisible: imageVisible } = useScrollAnimation(0.3);
+  const { elementRef: messageRef, isVisible: messageVisible } = useScrollAnimation(0.3);
+
   return (
     <div className="relative min-h-screen bg-background flex flex-col items-center justify-center p-8">
       <LeafDecoration position="top-left" />
@@ -11,7 +15,14 @@ const LastPage = () => {
       
       <div className="max-w-4xl mx-auto text-center">
         {/* Couple Photo */}
-        <div className="mb-8">
+        <div 
+          ref={imageRef}
+          className={`mb-8 transition-all duration-1000 ${
+            imageVisible 
+              ? 'opacity-100 translate-y-0 scale-100' 
+              : 'opacity-0 translate-y-8 scale-95'
+          }`}
+        >
           <img 
             src={lastPageImage}
             alt="Judy e Hélder - Celebrating Love"
@@ -20,7 +31,14 @@ const LastPage = () => {
         </div>
         
         {/* Message */}
-        <div className="space-y-6">
+        <div 
+          ref={messageRef}
+          className={`space-y-6 transition-all duration-1000 delay-300 ${
+            messageVisible 
+              ? 'opacity-100 translate-y-0 scale-100' 
+              : 'opacity-0 translate-y-8 scale-95'
+          }`}
+        >
           <p className="elegant-font text-2xl md:text-3xl text-script-text leading-relaxed">
             Contamos com sua presença para celebrar o nosso amor
           </p>
